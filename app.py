@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # import necessary libraries
 from flask import (
     Flask,
@@ -22,3 +23,21 @@ class Wild_Life(Base):
     value = db.Column(db.String(255))
 
 
+=======
+import sqlite3
+from flask import g
+
+DATABASE = '/path/to/database.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
+>>>>>>> f0afe1a59c2d6e7751a492e6d36546779ea15d6a
