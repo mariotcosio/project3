@@ -26,8 +26,13 @@ You can also embed plots, for example:
 plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 ```{r}
 wild_life <- read_csv("Resources/WILD_LIFE.csv")
 ```
+
+
+```{r}
+head(wild_life)
+```
+
 
