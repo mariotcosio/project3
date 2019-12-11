@@ -1,6 +1,8 @@
 # import necessary libraries
 import os
 
+import sqlite3
+from flask import g
 import pandas as pd
 import numpy as np
 
@@ -19,59 +21,26 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Resources/wl.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Resources/wild_life.db"
 
 db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
-Base = automap_base()
-# reflect the tables
-Base.prepare(db.engine, reflect=True)
+db.Model.metadata.reflect(db.engine)
 
 # Save references to each table
 #Samples_Metadata = Base.classes.sample_metadata
 #Samples = Base.classes.samples
 
-@app.route("/")
-def index():
-    """Return the homepage."""
-    return render_template("index.html")
-
-
-@app.route("/names")
-def names():
-    """Return a list of sample names."""
-
-    # Use Pandas to perform the sql query
-    stmt = db.session.query(Samples).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
-
-    # Return a list of the column names (sample names)
-    return jsonify(list(df.columns)[2:])
-
-
-class wild_life(db.Model):
-    __tablename__ = "wild_life"
-    id = db.Column(db.Integer, primary_key=True)
-    iucn = db.Column(db.String(255))
-    spec = db.Column(db.String(255))
-    cou = db.Column(db.String(255))
-    value = db.Column(db.String(255))
-
-    def __repr__(self):
-        return '<%r>' % (self.cou)
-
-@app.before_first_request
-def setup():
-    # Recreate database each time for demo
-    db.drop_all()
-    db.create_all()
+class Wild_Life(db.Model):
+    __tablename__ = 'status'
+    __table_args__ = { 'extend_existing': True }  
 
 @app.route("/api/data")
-def list_pets():
-    results = db.session.query(wild_life.iucn, wild_life.spec, wild_life.cou, wild_life.value).all()
+def list_status():
+    results = db.session.query(Wild_Life.iucn, Wild_Life.spec, Wild_Life.cou, Wild_Life.value).all()
 
-    test = []
+    status = []
     print(results)
 
     for result in results:
@@ -81,12 +50,29 @@ def list_pets():
             "coun": result[2],
             "value": result[3]
         })
-    return jsonify(test)
+    return jsonify(status)
 
-@app.route("/")
+@app.route('/list')
+def list():
+   con = sql.connect("Resources/wl.db")
+   con.row_factory = sql.Row
+   
+   cur = con.cursor()
+   cur.execute("select * from Wild_Life")
+   
+   rows = cur.fetchall();
+   return render_template("list.html",rows = rows)
+
+
+@app.route("/a")
 def home():
+    print("total number of items is", Wild_Life.query.count())
     return "Welcome!"
 
+@app.route("/")
+def index():
+    """Return the homepage."""
+    return "Hello!"
 
 if __name__ == "__main__":
     app.run()
