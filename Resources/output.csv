@@ -1,50 +1,187 @@
-
-Continental Tiger,Panthera tigris tigris,
-Dolphins and Porpoises,,
-Elephant,,
-Gorilla,Gorilla gorilla and Gorilla beringei,
-Monarch Butterfly,Danaus plexippus,
-Pacific Salmon,,
-Pangolin,,
-Penguin,Spheniscidae,
-Poison Dart Frog,Dendrobates species,
-Rhino,,
-Seals,,
-Shark,,
-Sloth,,
-Tuna,Thunnus and Katsuwonus species,
-Arctic Fox,Vulpes  lagopus,Least Concern
-Arctic Wolf,Canis lupus arctos,Least Concern
-Bowhead Whale,Balaena mysticetus,Least Concern
-Brown Bear,Ursus arctos,Least Concern
-Common Bottlenose Dolphin,Tursiops truncates,Least Concern
-Gray Whale,Eschrichtius robustus,Least Concern
-Macaw,Ara ararauna,Least Concern
-Pronghorn,Antilocarpa americana,Least Concern
-Skipjack Tuna,Katsuwonus pelamis,Least Concern
-Swift Fox,Vulpes velox,Least Concern
-Tree Kangaroo,Dendrolagus sp.,Least Concern
-Albacore Tuna,Thunnus alalunga,Near Threatened
-Beluga,Delphinapterus leucas,Near Threatened
-Greater Sage-Grouse,Centrocercus urophasianus,Near Threatened
-Jaguar,Panthera onca,Near Threatened
-Mountain Plover,Charadrius montanus,Near Threatened
-Narwhal,Monodon monoceros,Near Threatened
-Plains Bison,Bison bison bison,Near Threatened
-White Rhino,Ceratotherium simum,Near Threatened
-Yellowfin Tuna,Thunnus albacares,Near Threatened
-African Elephant,Loxodonta africana,Vulnerable
-Bigeye Tuna,Thunnus obesus,Vulnerable
-Black Spider Monkey,Ateles paniscus,Vulnerable
-Dugong,Dugong dugon,Vulnerable
-Forest Elephant,,Vulnerable
-Giant Panda,Ailuropoda melanoleuca,Vulnerable
-Giant Tortoise,,Vulnerable
-Great White Shark,Carcharodon carcharias,Vulnerable
-Greater One-Horned Rhino,Rhinoceros unicornis,Vulnerable
-Hippopotamus,Hippopotamus amphibius,Vulnerable
-Leatherback Turtle,Dermochelys coriacea,Vulnerable
-Loggerhead Turtle,Caretta caretta,Vulnerable
-Marine Iguana,Amblyrhynchus cristatus,Vulnerable
-Olive Ridley Turtle,Lepidochelys olivacea,Vulnerable
-Polar Bear,Ursus maritimus,Vulnerable
+Continental Tiger,Panthera tigris tigris,
+,,
+Dolphins and Porpoises,,
+,,
+Elephant,,
+,,
+Gorilla,Gorilla gorilla and Gorilla beringei,
+,,
+Monarch Butterfly,Danaus plexippus,
+,,
+Pacific Salmon,,
+,,
+Pangolin,,
+,,
+Penguin,Spheniscidae,
+,,
+Poison Dart Frog,Dendrobates species,
+,,
+Rhino,,
+,,
+Seals,,
+,,
+Shark,,
+,,
+Sloth,,
+,,
+Tuna,Thunnus and Katsuwonus species,
+,,
+Arctic Fox,Vulpes  lagopus,Least Concern
+,,
+Arctic Wolf,Canis lupus arctos,Least Concern
+,,
+Bowhead Whale,Balaena mysticetus,Least Concern
+,,
+Brown Bear,Ursus arctos,Least Concern
+,,
+Common Bottlenose Dolphin,Tursiops truncates,Least Concern
+,,
+Gray Whale,Eschrichtius robustus,Least Concern
+,,
+Macaw,Ara ararauna,Least Concern
+,,
+Pronghorn,Antilocarpa americana,Least Concern
+,,
+Skipjack Tuna,Katsuwonus pelamis,Least Concern
+,,
+Swift Fox,Vulpes velox,Least Concern
+,,
+Tree Kangaroo,Dendrolagus sp.,Least Concern
+,,
+Albacore Tuna,Thunnus alalunga,Near Threatened
+,,
+Beluga,Delphinapterus leucas,Near Threatened
+,,
+Greater Sage-Grouse,Centrocercus urophasianus,Near Threatened
+,,
+Jaguar,Panthera onca,Near Threatened
+,,
+Mountain Plover,Charadrius montanus,Near Threatened
+,,
+Narwhal,Monodon monoceros,Near Threatened
+,,
+Plains Bison,Bison bison bison,Near Threatened
+,,
+White Rhino,Ceratotherium simum,Near Threatened
+,,
+Yellowfin Tuna,Thunnus albacares,Near Threatened
+,,
+African Elephant,Loxodonta africana,Vulnerable
+,,
+Bigeye Tuna,Thunnus obesus,Vulnerable
+,,
+Black Spider Monkey,Ateles paniscus,Vulnerable
+,,
+Dugong,Dugong dugon,Vulnerable
+,,
+Forest Elephant,,Vulnerable
+,,
+Giant Panda,Ailuropoda melanoleuca,Vulnerable
+,,
+Giant Tortoise,,Vulnerable
+,,
+Great White Shark,Carcharodon carcharias,Vulnerable
+,,
+Greater One-Horned Rhino,Rhinoceros unicornis,Vulnerable
+,,
+Hippopotamus,Hippopotamus amphibius,Vulnerable
+,,
+Leatherback Turtle,Dermochelys coriacea,Vulnerable
+,,
+Loggerhead Turtle,Caretta caretta,Vulnerable
+,,
+Marine Iguana,Amblyrhynchus cristatus,Vulnerable
+,,
+Olive Ridley Turtle,Lepidochelys olivacea,Vulnerable
+,,
+Polar Bear,Ursus maritimus,Vulnerable
+,,
+Sea Turtle,Cheloniidae and Dermochelyidae families,Vulnerable
+,,
+Snow Leopard,Panthera uncia,Vulnerable
+,,
+Southern rockhopper penguin,Eudyptes chrysocome,Vulnerable
+,,
+African Wild Dog,Lycaon pictus,Endangered
+,,
+Asian Elephant,Elephas maximus indicus,Endangered
+,,
+Black-footed Ferret,Mustela nigripes,Endangered
+,,
+Blue Whale,Balaenoptera musculus,Endangered
+,,
+Bluefin Tuna,Thunnus Thynnus,Endangered
+,,
+Bonobo,Pan paniscus,Endangered
+,,
+Borneo Pygmy Elephant,Elephas maximus borneensis,Endangered
+,,
+Chimpanzee,Pan troglodytes,Endangered
+,,
+Fin Whale,Balaenoptera physalus,Endangered
+,,
+Galápagos Penguin,Spheniscus mendiculus,Endangered
+,,
+Ganges River Dolphin,Platanista gangetica gangetica,Endangered
+,,
+Green Turtle,Chelonia mydas,Endangered
+,,
+Hector's Dolphin,Cephalorhynchus hectori,Endangered
+,,
+Humphead Wrasse,Cheilinus undulatus,Endangered
+,,
+Indian Elephant,Elephas maximus indicus,Endangered
+,,
+Indus River Dolphin,Platanista minor,Endangered
+,,
+Irrawaddy Dolphin,Orcaella brevirostris,Endangered
+,,
+Mountain Gorilla,Gorilla beringei beringei,Endangered
+,,
+North Atlantic Right Whale,Eubalaena glacialis,Endangered
+,,
+Red Panda,Ailurus fulgens,Endangered
+,,
+Sea Lions,Zalophus wollebaeki,Endangered
+,,
+Sei Whale,Balaenoptera borealis,Endangered
+,,
+Sri Lankan Elephant,Elephas maximus maximus,Endangered
+,,
+Tiger,Panthera tigris,Endangered
+,,
+Whale,"Balaenoptera, Balaena, Eschrichtius, and Eubalaen",Endangered
+,,
+Whale Shark,Rhincodon typus,Endangered
+,,
+Amur Leopard,Panthera pardus orientalis,Critically Endangered
+,,
+Black Rhino,Diceros bicornis,Critically Endangered
+,,
+Bornean Orangutan,Pongo pygmaeus,Critically Endangered
+,,
+Cross River Gorilla,Gorilla gorilla diehli,Critically Endangered
+,,
+Eastern Lowland Gorilla,Gorilla beringei graueri,Critically Endangered
+,,
+Hawksbill Turtle,Eretmochelys imbricata,Critically Endangered
+,,
+Javan Rhino,Rhinoceros sondaicus,Critically Endangered
+,,
+Orangutan,"Pongo abelii, Pongo pygmaeus",Critically Endangered
+,,
+Saola,Pseudoryx nghetinhensis,Critically Endangered
+,,
+Sumatran Elephant,Elephas maximus sumatranus,Critically Endangered
+,,
+Sumatran Orangutan,Pongo abelii,Critically Endangered
+,,
+Sumatran Rhino,Dicerorhinus sumatrensis,Critically Endangered
+,,
+Sunda Tiger,Panthera tigris sondaica,Critically Endangered
+,,
+Vaquita,Phocoena sinus,Critically Endangered
+,,
+Western Lowland Gorilla,Gorilla gorilla gorilla,Critically Endangered
+,,
+Yangtze Finless Porpoise,Neophocaena asiaeorientalis ssp. asiaeorientalis,Critically Endangered
