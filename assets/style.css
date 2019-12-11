@@ -1,0 +1,62 @@
+body{
+    background-color:black;
+}
+
+.conservation {    
+    border-radius: 180px;
+    width: 25rem;
+    height: 25rem;
+ 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
+   box-shadow: 5px 5px 5px gray;
+    
+}
+
+h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: blanchedalmond;
+
+    text-shadow: 3px 3px black;
+    font-size: 4em;
+    font-family: 'Indie Flower', cursive;
+    
+}
+.conservation:hover {
+    opacity: 1.5;
+    box-shadow:8px 8px 8px burlywood;
+    cursor: pointer;
+}
+
+#box0{
+    background-image: url("../Resources/Images/forest.jpeg");
+    /* background-size: cover;
+    background-size: 100%; */
+}
+#box1{
+    background-image: url("../Resources/Images/baby\ gorilla.jpg");  
+    
+}
+#box2{
+    background-image: url("../Resources/Images/pandas.jpeg");  
+}
+#box3{
+    background-image: url("../Resources/Images/tiger.jpg");  
+}
+#box4{
+    background-image: url("../Resources/Images/PolarBear.jpeg");  
+}
+
+.circle {
+    text-decoration: none;
+    color: white;
+}
+.circle:hover {
+   color: white; 
+}
+
