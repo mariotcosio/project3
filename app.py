@@ -9,7 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Resourcesz\wild_life.db"
+=======
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Resources\wild_life.db"
+>>>>>>> 50af66a290cbdf1bf6d5f502270a47556a80a376
 
 db = SQLAlchemy(app)
 
@@ -35,6 +39,7 @@ def setup():
 @app.route("/api/data")
 def list_pets():
     results = db.session.query(Wild_Life.iucn, Wild_Life.spec, Wild_Life.cou, Wild_Life.value).all()
+    results = db.session.query(Wild_Life.IUCN, Wild_Life.SPEC, Wild_Life.COU, Wild_Life.Value).all()
 
     test = []
     print(results)
