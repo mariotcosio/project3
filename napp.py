@@ -16,7 +16,13 @@ db = SQLAlchemy(app)
 
 status = db.Table('status', db.metadata, autoload=True, autoload_with=db.engine)
 
-@app.route('/')
+
+@app.route("/")
+def index():
+    """Return the homepage."""
+    return render_template("index.html")
+
+@app.route('/assests/critical')
 def index():
     results = db.session.query(status).all()
     for r in results:
@@ -25,8 +31,8 @@ def index():
     return ''
 
 @app.route("/api/test")
-def test():
-    test = db.sessions.query(status,IUCN, status.SPEC, status.COU, status.Value).all()
+def index():
+    test = db.sessions.query(status.IUCN, status.SPEC, status.COU, status.Value).all()
     return jsonify(test)
 
 
