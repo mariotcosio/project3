@@ -1,21 +1,25 @@
-# import necessary libraries
-from flask import (
-    Flask,
-    render_template,
-    jsonify,
-    request)
+#Import all my dependencies at once
+import sqlalchemy
+from sqlalchemy.ext.automap import automap_base
+from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, func
+from flask import Flask, jsonify
 
-from flask_sqlalchemy import SQLAlchemy
+#Create an engine for the `hawaii.sqlite` database
+engine = create_engine("sqlite:///SQL/wild_life.db")
 
+#Create the base for sqlalchemy
+Base = automap_base()
+Base.prepare(engine, reflect=True)
+
+#Save the tables into variables
+Measure = Base.classes.Wild_Life
+
+#Create the session
+session = Session(engine)
+
+#Create the app
 app = Flask(__name__)
-
-<<<<<<< HEAD
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Resourcesz\wild_life.db"
-=======
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///Resources\wild_life.db"
->>>>>>> 50af66a290cbdf1bf6d5f502270a47556a80a376
-
-db = SQLAlchemy(app)
 
 print(db)
 
@@ -38,9 +42,7 @@ def setup():
 
 @app.route("/api/data")
 def list_pets():
-    results = db.session.query(Wild_Life.iucn, Wild_Life.spec, Wild_Life.cou, Wild_Life.value).all()
-    results = db.session.query(Wild_Life.IUCN, Wild_Life.SPEC, Wild_Life.COU, Wild_Life.Value).all()
-
+    results = db.session.query(Wild_Life.STATUS, Wild_Life.spec, Wild_Life.cou, Wild_Life.value).all()
     test = []
     print(results)
 
