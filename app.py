@@ -6,14 +6,14 @@ from sqlalchemy import create_engine, func
 from flask import Flask, jsonify
 
 #Create an engine for the `hawaii.sqlite` database
-engine = create_engine("sqlite:///SQL/wild_life.db")
+engine = create_engine("sqlite:///Resources/wild_life.sqlite")
 
 #Create the base for sqlalchemy
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 #Save the tables into variables
-Measure = Base.classes.Wild_Life
+status = Base.classes.status
 
 #Create the session
 session = Session(engine)
@@ -21,9 +21,20 @@ session = Session(engine)
 #Create the app
 app = Flask(__name__)
 
-print(db)
+@app.route("/index")
+def index():
+    #Displays a homepage menu
+    return "this is a test"
 
-class Wild_Life(db.Model):
+@app.route("/api/test")
+def stations():
+    #Queries and prints all the station names
+    session = Session(engine)
+    test = session.query(status.IUCN, status.SPEC, status.COU, status.Value).all()
+    return jsonify(test)
+
+
+'''class Wild_Life(db.Model):
     __tablename__ = "Wild_Life"
     id = db.Column(db.Integer, primary_key=True)
     iucn = db.Column(db.String(255))
@@ -62,6 +73,7 @@ def home():
 
 if __name__ == "__main__":
     app.run()
+'''
 '''
 import sqlite3
 from flask import g
