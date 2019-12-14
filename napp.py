@@ -16,25 +16,12 @@ db = SQLAlchemy(app)
 
 status = db.Table('status', db.metadata, autoload=True, autoload_with=db.engine)
 
-
-@app.route("/")
-def index():
-    """Return the homepage."""
-    return render_template("index.html")
-
-@app.route('/assests/critical')
+@app.route('/')
 def index():
     results = db.session.query(status).all()
     for r in results:
         print(r.SPEC)
 
     return ''
-
-@app.route("/api/test")
-def index():
-    test = db.sessions.query(status.IUCN, status.SPEC, status.COU, status.Value).all()
-    return jsonify(test)
-
-
 
 app.run()
