@@ -33,18 +33,11 @@ def serve_static_js(filename):
 @app.route('/vulnerable')
 def vulnerable():
     results = db.session.query(status).all()
-    for r in results:
-        print(r.SPEC)
-
     return jsonify(results)
 
 @app.route("/api/test")
 def test():
-    test = db.sessions.query(status.IUCN, status.SPEC, status.COU, status.Value).all()
+    test = db.session.query(status).all()
     return jsonify(test)
-
-
-
-
 
 app.run(host="0.0.0.0") 
