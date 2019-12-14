@@ -34,22 +34,22 @@ h2 {
 }
 
 #box0{
-    background-image: url("../Resources/Images/forest.jpeg");
+    background-image: url("../Images/forest.jpeg");
     /* background-size: cover;
     background-size: 100%; */
 }
 #box1{
-    background-image: url("../Resources/Images/baby\ gorilla.jpg");  
+    background-image: url("../Images/baby\ gorilla.jpg");  
     
 }
 #box2{
-    background-image: url("../Resources/Images/pandas.jpeg");  
+    background-image: url("../Images/pandas.jpeg");  
 }
 #box3{
-    background-image: url("../Resources/Images/tiger.jpg");  
+    background-image: url("../Images/tiger.jpg");  
 }
 #box4{
-    background-image: url("../Resources/Images/PolarBear.jpeg");  
+    background-image: url("../Images/PolarBear.jpeg");  
 }
 
 .circle {
