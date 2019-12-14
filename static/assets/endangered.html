@@ -57,6 +57,21 @@
   <script src="../assets/app.js"></script>
   <script type="text/javascript" src="df_endangered.json"></script>
   <script type="text/javascript" src="charts.js"></script>
+  <script> 
+
+    const request = new Request('http://127.0.0.1:5000/vulnerable');
+    
+    const URL = request.url;
+    const method = request.method;
+    const credentials = request.credentials;
+    
+    fetch(request)
+      .then(response => response.json())
+      .then(blob => {
+        console.log(blob)
+      });
+    
+      </script>
 </body>
 
 </html>
