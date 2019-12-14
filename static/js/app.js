@@ -23,7 +23,7 @@ function makeResponsive() {
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
     
     // import data
-    d3.csv("Resources/WILD_LIFE.csv").then(function(data){
+    d3.csv("/Resources/WILD_LIFE.csv").then(function(data){
         var IUCN=[];
         data.forEach(function(d){
             d.Value= +d.Value;
