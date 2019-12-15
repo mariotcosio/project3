@@ -30,11 +30,6 @@ def serve_static_images(filename):
 def serve_static_js(filename):
     return send_from_directory(os.path.join(".", 'static/js'), filename)
 
-@app.route('/vulnerable')
-def vulnerable():
-    results = db.session.query(status).all()
-    return jsonify(results)
-
 @app.route("/api/test")
 def test():
     test = db.session.query(status).all()
