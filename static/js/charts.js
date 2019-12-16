@@ -1,31 +1,37 @@
-function CreateTableFromJSON() {
-	var myBooks = JSON.parse(df_endangered)
-	// CREATE DYNAMIC TABLE.
-	var table = document.createElement("table");
+window.onload = function() {
 
-	// CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+var dataPoints = [];
 
-	var tr = table.insertRow(-1);                   // TABLE ROW.
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title: {
+		text: "Endangered"
+	},
+	axisY: {
+		title: "Units",
+		titleFontSize: 24
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,### Units",
+		dataPoints: dataPoints
+	}]
+});
 
-	for (var i = 0; i < col.length; i++) {
-		var th = document.createElement("th");      // TABLE HEADER.
-		th.innerHTML = col[i];
-		tr.appendChild(th);
+function addData(data) {
+	for (var i = 0; i < data.length; i++) {
+		dataPoints.push({
+			x: new Date(data[i].date),
+			y: data[i].units
+		});
 	}
+	chart.render();
 
-	// ADD JSON DATA TO THE TABLE AS ROWS.
-	for (var i = 0; i < df_endangered.length; i++) {
-
-		tr = table.insertRow(-1);
-
-		for (var j = 0; j < col.length; j++) {
-			var tabCell = tr.insertCell(-1);
-			tabCell.innerHTML = myBooks[i][col[j]];
-		}
-	}
-
-	// FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-	var divContainer = document.getElementById("showData");
-	divContainer.innerHTML = "";
-	divContainer.appendChild(table);
 }
+
+$.getJSON("Resources/simplified.json", addData);
+
+}
+
+
