@@ -1,45 +1,102 @@
 // var url="/api/vulnerable";
 
-function drawPlots(url, chartTitle){
+function drawPlots(url, chartTitle, chartType, chartRange){
+    // alert(chartType);
+    // alert(chartRange);
+
     d3.json(url).then(function(data){
-        console.log(data);
-        var icun=[];
-        var value=[];
-        var spec=[];
-        var cou=[];
-        
+      
+        // console.log(data);
+        // var icun=[];
+        // var value=[];
+        // var spec=[];
+        // var cou=[];
+
+        var mammal_value=[];
+        var mammal_cou=[];
+
+        var reptile_value=[];
+        var reptile_cou=[];
+
+        var bird_value=[];
+        var bird_cou=[];
+
+
         data.forEach(function(d){
             d.value= +d.value;
-            value.push(d.value);
-            icun.push(d.icun);
-            spec.push(d.spec);
-            cou.push(d.cou);
+            // value.push(d.value);
+            // icun.push(d.icun);
+            // spec.push(d.spec);
+            // cou.push(d.cou);
+            
+            if (d.spec=="MAMMAL"){
+                mammal_value.push(d.value);
+                mammal_cou.push(d.cou);
+
+            } else if (d.spec=="REPTILE") {
+                reptile_value.push(d.value);
+                reptile_cou.push(d.cou);
+
+            } else  {
+                bird_value.push(d.value);
+                bird_cou.push(d.cou);
+
+            }
         });
 
 
-    var trace1 = {
-        x: cou,
-        y: value,
-        z: spec,
-        type: "bar",
-        mode: "marker",
-        text: spec
+        console.log(mammal_value);
+        console.log(mammal_cou);
         
-    }; 
-
+        // console.log(bird);
+        // console.log(reptile);
     
+
+    var trace1 = {
+        x: mammal_cou,
+        y: mammal_value,
+        name: "Mammals",
+        type: "bar",
+        marker: {
+            color: 'rgb(49,130,189)',
+            opacity: 0.7,
+          },
+        width: 0.5
+    }; 
+    var trace2 ={
+        x: reptile_cou,
+        y: reptile_value,
+        name: "Reptiles",
+        type: "bar",
+        marker: {
+            color: 'red',
+            opacity: 0.5
+        },
+        width: 0.5
+    }
+    var trace3 ={
+        x: bird_cou,
+        y: bird_value,
+        name: "Birds",
+        type: "bar",
+        marker: {
+            color: 'rgb(142,124,195)',
+            // opacity: 0.5
+        },
+        width: 0.5
+    }
+    
+
+
     var layout = {
         title: chartTitle,
-        
-        yaxis: {
-        range: [1,200],
-        type: "linear"
-        },
-        showlegend: false
+        barmode: chartType,
+        showlegend: true
     };
 
     
-    var data1 = [trace1];            
+    var data1 = [trace1, trace2, trace3];            
     Plotly.newPlot("chart", data1, layout);
     });
 }
+

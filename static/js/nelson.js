@@ -76,7 +76,7 @@ function buildPlot() {
             d3.select(this)
             .transition()
             .duration(1000)
-            .attr("r",d => xLinearScale(d[3]/20))
+            .attr("r",d => xLinearScale(d[3]/10))
             .attr("fill","red");
         })
             .on("mouseout", function(){
