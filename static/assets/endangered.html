@@ -28,7 +28,7 @@
             <h1>Endangered Animals</h1>
             <p>Endangered animals are animals that are in danger of becoming extinct. This means that there will be no more of these animals alive on earth. An animal is considered endangered or "threatened" when there are very few of them alive. These animals are called "extinct in the wild".</p>
        
-            <div id="chart-vulnerable"><title>Endangered</title>
+            <!-- <div id="chart-vulnerable"><title>Endangered</title>
               <style>
                   th, td, p, input {
                       font:14px Verdana;
@@ -44,8 +44,8 @@
                       font-weight:bold;
                   }
               </style></div>     
-        </div>  
-      
+        </div>   -->
+          <div id="chart" style="height: 600px;"></div>
       </div>
     </div>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
@@ -54,24 +54,14 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="../assets/app.js"></script>
-  <script type="text/javascript" src="df_endangered.json"></script>
-  <script type="text/javascript" src="charts.js"></script>
-  <script> 
 
-    const request = new Request('http://127.0.0.1:5000/vulnerable');
-    
-    const URL = request.url;
-    const method = request.method;
-    const credentials = request.credentials;
-    
-    fetch(request)
-      .then(response => response.json())
-      .then(blob => {
-        console.log(blob)
-      });
-    
-      </script>
+  <!-- <script type="text/javascript" src="df_endangered.json"></script>
+  <script type="text/javascript" src="charts.js"></script> -->
+
+  <script src="../js/plots.js"></script>
+  <script>
+    drawPlots("/api/endangered", "Endangered Animals");
+  </script>
 </body>
 
 </html>

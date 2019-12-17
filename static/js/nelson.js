@@ -9,7 +9,7 @@ function buildPlot() {
     });*/
     
     var url = "/api/test";
-    var svgWidth = window.innerWidth;
+    var svgWidth = window.innerWidth/1.4;
     var svgHeight = window.innerHeight;
 
     var margin = {
@@ -89,3 +89,4 @@ function buildPlot() {
 });
 };
 buildPlot();
+d3.select(window).on("resize", buildPlot);

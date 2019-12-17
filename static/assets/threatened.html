@@ -28,7 +28,7 @@
             <h1>Threatened Animals</h1>
             <p>Threatened animals are any those which are vulnerable to endangerment in the near future. Species that are threatened are sometimes characterised by the population dynamics measure of critical depensation, a mathematical measure of biomass related to population growth rate.</p>
        
-            <div id="chart-vulnerable">Place holder for the chart!</div>     
+            <div id="chart" style="height: 600px;"></div>     
         </div>  
       
       </div>
@@ -40,7 +40,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="../assets/app.js"></script>
-  <script> 
+  <script src="../js/plots.js"></script>
+  <script>
+    drawPlots("/api/threatened","Threatened Animals");
+  </script>
+
+
+  <!-- <script> 
 
     const request = new Request('http://127.0.0.1:5000/vulnerable');
     
@@ -54,7 +60,7 @@
         console.log(blob)
       });
     
-      </script>
+      </script> -->
 </body>
 
 </html>
