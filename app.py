@@ -36,6 +36,10 @@ def serve_static_js(filename):
 @app.route("/api/test")
 def test():
     test = db.session.query(status).all()
+    results = db.session.execute("SELECT * FROM status where iucn in ('VULNERABLE', 'CRITICAL', 'ENDANGERED', 'THREATENED')")
+    data=[]
+    for result in results:
+        data.append([result[0],result[1],result[2],result[3]]) 
     return jsonify(test)
 
 @app.route("/api/vulnerable")

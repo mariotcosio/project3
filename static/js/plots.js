@@ -1,6 +1,6 @@
 // var url="/api/vulnerable";
 
-function drawPlots(url, chartTitle, chartType, chartRange){
+function drawPlots(url, chartTitle, chartType, barWidth){
     // alert(chartType);
     // alert(chartRange);
 
@@ -61,7 +61,7 @@ function drawPlots(url, chartTitle, chartType, chartRange){
             color: 'rgb(49,130,189)',
             opacity: 0.7,
           },
-        width: 0.5
+        width: barWidth
     }; 
     var trace2 ={
         x: reptile_cou,
@@ -72,7 +72,7 @@ function drawPlots(url, chartTitle, chartType, chartRange){
             color: 'red',
             opacity: 0.5
         },
-        width: 0.5
+        width: barWidth
     }
     var trace3 ={
         x: bird_cou,
@@ -83,7 +83,7 @@ function drawPlots(url, chartTitle, chartType, chartRange){
             color: 'rgb(142,124,195)',
             // opacity: 0.5
         },
-        width: 0.5
+        width: barWidth
     }
     
 

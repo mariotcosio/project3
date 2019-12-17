@@ -35,16 +35,18 @@ function buildPlot() {
     d3.json(url).then(function(data){
         var IUCN=[];
         var value =[];
+        var spec=[];
         data.forEach(function(d){
-            console.log(d[0])
+            console.log(d[0]);
             d[3]= +d[3];
-            value.push(d[3])
+            value.push(d[3]);
             IUCN.push(d[2]);
+            spec.push(d[1]);
         });
         
         var xLinearScale = d3.scaleLinear()
         // .domain([1, d3.max(data, d => d.Value)])
-        .domain([1, 400])
+        .domain([1, 500])
         .range([5, width]); 
         
 
@@ -69,24 +71,70 @@ function buildPlot() {
             .attr("cx", d => xLinearScale(d[3]))
             .attr("cy", d => yBandScale(d[2]))
             .attr("r", d => xLinearScale(d[3]/30))
-            .attr("fill", "pink")
-            .attr("opacity", ".5");
+            // .attr("fill", "pink")
+            .attr("opacity", ".8")
+            .attr("borderWidth",true)
 
-        circlesGroup.on("mouseover", function(){
+            .style("fill", function(d){
+                if(d[1] == "MAMMAL"){
+                    return "purple";
+                }
+                else if(d[1]=="BIRD"){
+                    return "violet";
+                }
+                else if(d[1]=="REPTILE"){
+                    return "pink";
+                }    
+                else if(d[1]=="AMPHIBIAN"){
+                    return "black";
+                }    
+                else if(d[1]=="VASCULAR_PLANT"){
+                    return "red";
+                }   
+                else if(d[1]=="FISH_TOT"){
+                    return "gray";
+                }
+
+                else
+                {
+                    return "pink";
+                }
+              }
+              
+            );
+            
+            var toolTip = d3.select('body').append('div').attr('class', 
+            'tooltipbor').style('opacity', 0.5);
+
+            circlesGroup.on("mouseover", function(){
             d3.select(this)
             .transition()
             .duration(1000)
             .attr("r",d => xLinearScale(d[3]/10))
-            .attr("fill","red");
+            .style("fill","red")
+            .style('opacity', 0.9)
+
+            toolTip.html(d)
+            .style('left', (d3.event.pageX + 10) + 'px')
+            .style('top', (d3.event.pageY + 10) + 'px');
+            
         })
+
+        
             .on("mouseout", function(){
                 d3.select(this)
                     .transition()
                     .duration(1000)
                     .attr("r", d => xLinearScale(d[3]/30))
-                    .attr("fill", "pink")
+                    //.attr("fill", "pink")
             });
 });
 };
 buildPlot();
 d3.select(window).on("resize", buildPlot);
+
+
+// .style('opacity', 0.9)
+//       toolTip.html(`${d.borough} <br/>${d.number}`)
+//       .style('left', (d3.event.pageX + 10) + 'px')
+//       .style('top', (d3.event.pageY + 10) + 'px')
