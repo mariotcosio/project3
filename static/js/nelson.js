@@ -109,57 +109,67 @@ function buildPlot() {
                     }
             });
 
-        var toolTip = d3.select("body")
-            .append("div")
-            .attr("class", "tooltip");
+        
 
+        // circlesGroup
+        // .on("mouseover", function(d){
+        //         d3.select(this)
+        //         .transition()
+        //         .duration(1000)
+        //         .attr("r",d => xLinearScale(d[3]/10))
+        //         .style('opacity', 0.9)
+        // })
 
-        circlesGroup
-        .on("mouseover", function(d){
-                d3.select(this)
-                .transition()
-                .duration(1000)
-                .attr("r",d => xLinearScale(d[3]/10))
-                .style('opacity', 0.9)
-        })
-
-        .on("mouseout", function(){
-                d3.select(this)
-                    .transition()
-                    .duration(1000)
-                    .attr("r", d => xLinearScale(d[3]/30))
-                    toolTip.style("display", "none");
-        });
+        // .on("mouseout", function(){
+        //         d3.select(this)
+        //             .transition()
+        //             .duration(1000)
+        //             .attr("r", d => xLinearScale(d[3]/30))
+        //             toolTip.style("display", "none");
+        // });
 
      
+        var div = d3.select("body").append("div") 
+        .attr("class", "tooltip")       
+        .style("opacity", 1);
         
-     /************************ */   
-        // Step 1: Append tooltip div
         // var toolTip = d3.select("body")
         // .append("div")
         // .attr("class", "tooltip");
 
-        // // Step 2: Create "mouseover" event listener to display tooltip
-        // circlesGroup.on("mouseover", function(d) {
-        // toolTip.style("display", "block")
-        //     .html(d)
-        //     .style("left", d3.event.pageX + "px")
-        //     .style("top", d3.event.pageY + "px");
-        // })
 
+        circlesGroup.on("mouseover", function(data, i){
+            d3.select(this)
+            .transition()
+            .duration(1000)
+            .attr("r",d => xLinearScale(d[3]/10))
+            .style('opacity', 0.9);
 
-        // // Step 3: Create "mouseout" event listener to hide tooltip
-        // .on("mouseout", function() {
-        //     toolTip.style("display", "none");
-        // });
+            div.transition()        
+            .duration(200)      
+            .style("opacity", 0.9);  
 
-     /************************* */
+            // div.html(`${d[0]}<hr>${d[1]}<hr>${d[2]}`) 
+            div.html(`${data[0]} <hr> ${data[1]} <hr> ${data[2]} <hr>${data[3]} <hr>`)
+            .style("left", (d3.event.pageX) + "px")     
+            .style("top", (d3.event.pageY - 28) + "px");
+        })
+        .on("mouseout", function(){
+            d3.select(this)
+                .transition()
+                .duration(1000)
+                .attr("r", d => xLinearScale(d[3]/30));
+
+                div.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+    });
+
     
     }).catch(function(error) {
             console.log(error);
-        })
-    
-}  
+        });  
+};
 
 
 buildPlot();
