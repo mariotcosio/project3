@@ -1,1 +1,0 @@
-csv-to-sqlite -f abilities.csv -f Resources/WILD_LIFE.csv
