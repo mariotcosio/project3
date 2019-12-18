@@ -22,6 +22,14 @@ function buildPlot() {
     var width = svgWidth - margin.left - margin.right;
     var height = svgHeight - margin.top - margin.bottom;
 
+    // if the SVG area isn't empty when the browser loads,
+    // remove it and replace it with a resized version of the chart
+    var svgArea = d3.select("body").select("svg");
+
+    // clear svg is not empty
+    if (!svgArea.empty()) {
+        svgArea.remove();
+    }
     var svg = d3
         .select(".chart")
         .append("svg")
@@ -36,14 +44,15 @@ function buildPlot() {
         var IUCN=[];
         var value =[];
         var spec=[];
+
         data.forEach(function(d){
-            console.log(d[0]);
+            // console.log(d[0]);
             d[3]= +d[3];
             value.push(d[3]);
             IUCN.push(d[2]);
             spec.push(d[1]);
         });
-        
+    
         var xLinearScale = d3.scaleLinear()
         // .domain([1, d3.max(data, d => d.Value)])
         .domain([1, 500])
@@ -71,70 +80,90 @@ function buildPlot() {
             .attr("cx", d => xLinearScale(d[3]))
             .attr("cy", d => yBandScale(d[2]))
             .attr("r", d => xLinearScale(d[3]/30))
-            // .attr("fill", "pink")
             .attr("opacity", ".8")
-            .attr("borderWidth",true)
-
+            .attr("stroke-width", "0.5")
+            .attr("stroke", "white")
             .style("fill", function(d){
-                if(d[1] == "MAMMAL"){
-                    return "purple";
-                }
-                else if(d[1]=="BIRD"){
-                    return "violet";
-                }
-                else if(d[1]=="REPTILE"){
-                    return "pink";
-                }    
-                else if(d[1]=="AMPHIBIAN"){
-                    return "black";
-                }    
-                else if(d[1]=="VASCULAR_PLANT"){
-                    return "red";
-                }   
-                else if(d[1]=="FISH_TOT"){
-                    return "gray";
-                }
+                    if(d[1] == "MAMMAL"){
+                        return "purple";
+                    }
+                    else if(d[1]=="BIRD"){
+                        return "violet";
+                    }
+                    else if(d[1]=="REPTILE"){
+                        return "pink";
+                    }    
+                    else if(d[1]=="AMPHIBIAN"){
+                        return "black";
+                    }    
+                    else if(d[1]=="VASCULAR_PLANT"){
+                        return "red";
+                    }   
+                    else if(d[1]=="FISH_TOT"){
+                        return "gray";
+                    }
+    
+                    else
+                    {
+                        return "pink";
+                    }
+            });
 
-                else
-                {
-                    return "pink";
-                }
-              }
-              
-            );
-            
-            var toolTip = d3.select('body').append('div').attr('class', 
-            'tooltipbor').style('opacity', 0.5);
+        var toolTip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip");
 
-            circlesGroup.on("mouseover", function(){
-            d3.select(this)
-            .transition()
-            .duration(1000)
-            .attr("r",d => xLinearScale(d[3]/10))
-            .style("fill","red")
-            .style('opacity', 0.9)
 
-            toolTip.html(d)
-            .style('left', (d3.event.pageX + 10) + 'px')
-            .style('top', (d3.event.pageY + 10) + 'px');
-            
+        circlesGroup
+        .on("mouseover", function(d){
+                d3.select(this)
+                .transition()
+                .duration(1000)
+                .attr("r",d => xLinearScale(d[3]/10))
+                .style('opacity', 0.9)
         })
 
-        
-            .on("mouseout", function(){
+        .on("mouseout", function(){
                 d3.select(this)
                     .transition()
                     .duration(1000)
                     .attr("r", d => xLinearScale(d[3]/30))
-                    //.attr("fill", "pink")
-            });
-});
-};
+                    toolTip.style("display", "none");
+        });
+
+     
+        
+     /************************ */   
+        // Step 1: Append tooltip div
+        // var toolTip = d3.select("body")
+        // .append("div")
+        // .attr("class", "tooltip");
+
+        // // Step 2: Create "mouseover" event listener to display tooltip
+        // circlesGroup.on("mouseover", function(d) {
+        // toolTip.style("display", "block")
+        //     .html(d)
+        //     .style("left", d3.event.pageX + "px")
+        //     .style("top", d3.event.pageY + "px");
+        // })
+
+
+        // // Step 3: Create "mouseout" event listener to hide tooltip
+        // .on("mouseout", function() {
+        //     toolTip.style("display", "none");
+        // });
+
+     /************************* */
+    
+    }).catch(function(error) {
+            console.log(error);
+        })
+    
+}  
+
+
 buildPlot();
 d3.select(window).on("resize", buildPlot);
 
 
-// .style('opacity', 0.9)
-//       toolTip.html(`${d.borough} <br/>${d.number}`)
-//       .style('left', (d3.event.pageX + 10) + 'px')
-//       .style('top', (d3.event.pageY + 10) + 'px')
+ 
